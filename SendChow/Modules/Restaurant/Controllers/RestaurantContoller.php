@@ -24,7 +24,7 @@ class RestaurantContoller extends Controller
     public function listRestaurantFromCity(Request $request){
         $region = $request->get('region', 0);
         $restaurants = $this->_restaurantRepo->getRestaurants($region);
-
+        return view('modules.restaurant.index');
     }
 
 }

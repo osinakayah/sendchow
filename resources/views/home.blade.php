@@ -14,6 +14,7 @@
                     <div>
 
                         <form class="select" action="restaurants/get_restaurant_from_city" method="post">
+                            {{ csrf_field() }}
                             <select class="selectpicker" data-size="7" data-style="btn btn-primary" title="Select City" id="locale">
                                 <option disabled selected>Select City</option>
                                 @foreach($cities as $city)
@@ -77,51 +78,8 @@
                 <!-- <hr> -->
             </div>
         </div>
-        <div class="section section-app">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 app-ad">
-                        <h3>Send Food On The Go!</h3>
-                        <h5>Download our app and be able send food to anyone, anytime even on the go! Its in your pocket.</h5>
-                        <a href="#"><img src="{{URL::asset('assets/img/playstore.png')}}" alt="Play Store" width="172px"></a>
-                        <a href="#"><img src="{{URL::asset('assets/img/appstore.png')}}" alt="App Store" width="172px"></a>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="./assets/img/app.png" alt="app" width="512px">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <footer class="footer">
-            <div class="container">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Restaurants
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                How it works
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Terms of use
-                            </a>
-                        </li>
-
-                    </ul>
-                </nav>
-                <div class="copyright">
-                    &copy;
-                    {{date('Y')}}, copyright
-                    <a href="https://www.sendchow.me">SendChow</a>. Distance broken.
-                </div>
-            </div>
-        </footer>
+        @include ('_big_footer')
+        @include('_footer')
     </div>
 
     @parent
