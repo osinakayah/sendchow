@@ -9,7 +9,33 @@
 namespace SendChow\Modules\Restaurant\Repo;
 
 
+use SendChow\Modules\Locations\Models\Region;
+use SendChow\Modules\Merchant\Model\RestaurantMock;
+
 class RestaurantRepo
 {
+    protected $_restaurantModel, $_regionMock;
 
+    function __construct( RestaurantMock $restaurantMock, Region $region)
+    {
+        $this->_restaurantModel     = $restaurantMock;
+        $this->_regionMock          = $region;
+    }
+
+    /**
+     * @param int $region
+     * @return mixed
+     */
+
+    public function getRestaurants(int $region)
+    {
+        if($region != 0){
+            $region = $this->_regionMock->find($region);
+            if($region){
+                return $region->restaurants()->simplePaginate(10);
+            }
+        }else{
+            return $this->_restaurantModel->simplePaginate(10);
+        }
+    }
 }

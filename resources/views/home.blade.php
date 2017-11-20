@@ -13,7 +13,7 @@
                     <h4>-We've Broken the Distance, No More Excuses.-</h4>
                     <div>
 
-                        <form class="select" action="" method="post">
+                        <form class="select" action="restaurants/get_restaurant_from_city" method="post">
                             <select class="selectpicker" data-size="7" data-style="btn btn-primary" title="Select City" id="locale">
                                 <option disabled selected>Select City</option>
                                 @foreach($cities as $city)
