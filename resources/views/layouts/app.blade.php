@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}" />
         <link rel="stylesheet" href="{{URL::asset('assets/css/now-ui-kit.css')}}" />
         <link rel="stylesheet" href="{{URL::asset('assets/css/style.css')}}">
+        <link rel="stylesheet" href="{{URL::asset('assets/css/icomoon/styles.css')}}">
     </head>
 
     @section('body')

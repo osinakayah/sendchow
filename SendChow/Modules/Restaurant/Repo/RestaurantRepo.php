@@ -32,7 +32,7 @@ class RestaurantRepo
         if($region != 0){
             $region = $this->_regionMock->find($region);
             if($region){
-                return $region->restaurants()->simplePaginate(10);
+                return $region->restaurants()->with(['cuisines'])->simplePaginate(10);
             }
         }else{
             return $this->_restaurantModel->simplePaginate(10);

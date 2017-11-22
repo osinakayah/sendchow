@@ -88,54 +88,12 @@
                                     </div>
                                     <div id="cuisineCollapse" class="collapse" role="tabpanel" aria-labelledby="cuisineHeading" aria-expanded="false">
                                         <div class="card-block">
-                                            <div class="checkbox">
-                                                <input id="nigerian" type="checkbox" checked="">
-                                                <label for="nigerian">Nigerian</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="african" type="checkbox">
-                                                <label for="african">African</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="international" type="checkbox">
-                                                <label for="international">International</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="pizza" type="checkbox">
-                                                <label for="pizza">Pizza</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="burger" type="checkbox">
-                                                <label for="burger">Burger</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="shawarma" type="checkbox">
-                                                <label for="shawarma">Shawarma</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="seafood" type="checkbox">
-                                                <label for="seafood">Seafood</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="pasta" type="checkbox">
-                                                <label for="pasta">Pasta</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="chinese" type="checkbox">
-                                                <label for="chinese">Chinese</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="french" type="checkbox">
-                                                <label for="french">French</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="breakfast" type="checkbox">
-                                                <label for="breakfast">Breakfast</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="bakery-cakes" type="checkbox">
-                                                <label for="bakery-cakes">Bakery and Cakes</label>
-                                            </div>
+                                            @foreach($cuisines as $cuisine)
+                                                <div class="checkbox">
+                                                    <input type="checkbox" checked="">
+                                                    <label for="nigerian">{{$cuisine->cuisine}}</label>
+                                                </div>
+                                            @endforeach
 
                                         </div>
                                     </div>
@@ -146,248 +104,50 @@
                     </div>
                     <div class="col-lg-9 col-md-12">
                         <ul class="vendor-list">
-                            <li class="vendor">
-                                <div>
-                                    <a href="order_menu.html" class="vendor-nav">
-                                        <div class="vendor-image">
-                                            <img src="./assets/img/restaurant-list.jpg" width="80px" height="80px" class="rounded-circle" alt="restaurant">
-                                        </div>
-                                        <div class="vendor-info">
-                                            <div class="vendor-name">
-                                                <h4>The Place Restaurant</h4>
-                                            </div>
-                                            <ul class="vendor-cuisine">
-                                                <li>African,</li>
-                                                <li>Nigerian,</li>
-                                                <li>Backery and Cake,</li>
-                                                <li>Seafood</li>
-                                            </ul>
 
-                                            <div class="vendor-details">
-                                                <div class="vendor-afford">
-                                                    <span>₦₦</span>₦
+                            @foreach($restaurants as $restaurant)
+                                <li class="vendor">
+                                    <div>
+                                        <a href="order_menu.html" class="vendor-nav">
+                                            <div class="vendor-image">
+                                                <img src="{{URL::asset('assets/img/restaurant-list.jpg')}}" width="80px" height="80px" class="rounded-circle" alt="restaurant">
+                                            </div>
+                                            <div class="vendor-info">
+                                                <div class="vendor-name">
+                                                    <h4>{{$restaurant->title}}</h4>
                                                 </div>
-                                                <div class="vendor-rating">
-                                                    <div class="text-wrap">
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-half"></i>
-                                                        <span>(256)</span>
+                                                <ul class="vendor-cuisine">
+                                                    @foreach($restaurant->cuisines as $cuisine)
+                                                        <li>{{$cuisine}}</li>
+                                                    @endforeach
+                                                </ul>
+
+                                                <div class="vendor-details">
+                                                    <div class="vendor-afford">
+                                                        <span>₦₦</span>₦
                                                     </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="vendor-forward-icon">
-                                            <i class="icon-arrow-right32"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="vendor">
-                                <div>
-                                    <a href="order_menu.html" class="vendor-nav">
-                                        <div class="vendor-image">
-                                            <img src="./assets/img/restaurant-list.jpg" width="80px" height="80px" class="rounded-circle" alt="restaurant">
-                                        </div>
-                                        <div class="vendor-info">
-                                            <div class="vendor-name">
-                                                <h4>Chicken Republic</h4>
-                                            </div>
-                                            <ul class="vendor-cuisine">
-                                                <li>African,</li>
-                                                <li>Nigerian,</li>
-                                                <li>Backery and Cake,</li>
-
-                                            </ul>
-
-                                            <div class="vendor-details">
-                                                <div class="vendor-afford">
-                                                    <span>₦₦</span>₦
-                                                </div>
-                                                <div class="vendor-rating">
-                                                    <div class="text-wrap">
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-empty3"></i>
-                                                        <span>(216)</span>
+                                                    <div class="vendor-rating">
+                                                        <div class="text-wrap">
+                                                            @for($i = 0; $i <= 5; $i++)
+                                                                @if($i <= $restaurant->rating)
+                                                                    <i class="icon-star-full2"></i>
+                                                                @else
+                                                                    <i class="icon-star-empty3"></i>
+                                                                @endif
+                                                            @endfor
+                                                            <span>(256)</span>
+                                                        </div>
                                                     </div>
+
                                                 </div>
-
                                             </div>
-                                        </div>
-                                        <div class="vendor-forward-icon">
-                                            <i class="icon-arrow-right32"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="vendor">
-                                <div>
-                                    <a href="order_menu.html" class="vendor-nav">
-                                        <div class="vendor-image">
-                                            <img src="./assets/img/restaurant-list.jpg" width="80px" height="80px" class="rounded-circle" alt="restaurant">
-                                        </div>
-                                        <div class="vendor-info">
-                                            <div class="vendor-name">
-                                                <h4>KFC</h4>
+                                            <div class="vendor-forward-icon">
+                                                <i class="icon-arrow-right32"></i>
                                             </div>
-                                            <ul class="vendor-cuisine">
-                                                <li>Backery and Cake,</li>
-                                                <li>Nigerian</li>
-                                            </ul>
-
-                                            <div class="vendor-details">
-                                                <div class="vendor-afford">
-                                                    <span>₦₦₦</span>
-                                                </div>
-                                                <div class="vendor-rating">
-                                                    <div class="text-wrap">
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <span>(156)</span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="vendor-forward-icon">
-                                            <i class="icon-arrow-right32"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="vendor">
-                                <div>
-                                    <a href="order_menu.html" class="vendor-nav">
-                                        <div class="vendor-image">
-                                            <img src="./assets/img/restaurant-list.jpg" width="80px" height="80px" class="rounded-circle" alt="restaurant">
-                                        </div>
-                                        <div class="vendor-info">
-                                            <div class="vendor-name">
-                                                <h4>Kilimanjaro</h4>
-                                            </div>
-                                            <ul class="vendor-cuisine">
-                                                <li>African,</li>
-                                                <li>Nigerian,</li>
-                                                <li>Backery and Cake,</li>
-                                                <li>Seafood</li>
-                                            </ul>
-
-                                            <div class="vendor-details">
-                                                <div class="vendor-afford">
-                                                    <span>₦₦</span>₦
-                                                </div>
-                                                <div class="vendor-rating">
-                                                    <div class="text-wrap">
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-half"></i>
-                                                        <i class="icon-star-empty3"></i>
-                                                        <span>(126)</span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="vendor-forward-icon">
-                                            <i class="icon-arrow-right32"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-
-                            <li class="vendor">
-                                <div>
-                                    <a href="order_menu.html" class="vendor-nav">
-                                        <div class="vendor-image">
-                                            <img src="./assets/img/restaurant-list.jpg" width="80px" height="80px" class="rounded-circle" alt="restaurant">
-                                        </div>
-                                        <div class="vendor-info">
-                                            <div class="vendor-name">
-                                                <h4>Mega Chicken</h4>
-                                            </div>
-                                            <ul class="vendor-cuisine">
-                                                <li>African,</li>
-                                                <li>Nigerian,</li>
-                                                <li>Backery and Cake,</li>
-                                                <li>Seafood</li>
-                                            </ul>
-
-                                            <div class="vendor-details">
-                                                <div class="vendor-afford">
-                                                    <span>₦₦</span>₦
-                                                </div>
-                                                <div class="vendor-rating">
-                                                    <div class="text-wrap">
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-empty3"></i>
-                                                        <span>(126)</span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="vendor-forward-icon">
-                                            <i class="icon-arrow-right32"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-
-                            <li class="vendor">
-                                <div>
-                                    <a href="order_menu.html" class="vendor-nav">
-                                        <div class="vendor-image">
-                                            <img src="./assets/img/restaurant-list.jpg" width="80px" height="80px" class="rounded-circle" alt="restaurant">
-                                        </div>
-                                        <div class="vendor-info">
-                                            <div class="vendor-name">
-                                                <h4>Dominos Pizza</h4>
-                                            </div>
-                                            <ul class="vendor-cuisine">
-
-                                                <li>Nigerian,</li>
-                                                <li>Backery and Cake,</li>
-                                                <li>Pizza</li>
-                                            </ul>
-
-                                            <div class="vendor-details">
-                                                <div class="vendor-afford">
-                                                    <span>₦₦₦</span>
-                                                </div>
-                                                <div class="vendor-rating">
-                                                    <div class="text-wrap">
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <i class="icon-star-full2"></i>
-                                                        <span>(326)</span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="vendor-forward-icon">
-                                            <i class="icon-arrow-right32"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-
-
+                                        </a>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

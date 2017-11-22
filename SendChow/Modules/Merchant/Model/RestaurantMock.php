@@ -8,4 +8,8 @@ class RestaurantMock extends Model
 {
     //
     protected $table = 'restaurants';
+
+    public function  cuisines(){
+        return $this->belongsToMany(CuisineMock::class, 'cuisines_restaurant', 'restaurant_id', 'cuisine_id');
+    }
 }

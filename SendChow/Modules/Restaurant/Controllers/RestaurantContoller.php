@@ -11,6 +11,7 @@ namespace SendChow\Modules\Restaurant\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use SendChow\Modules\Merchant\Repo\CuisineRepo;
 use SendChow\Modules\Restaurant\Repo\RestaurantRepo;
 
 class RestaurantContoller extends Controller
@@ -21,10 +22,12 @@ class RestaurantContoller extends Controller
         $this->_restaurantRepo = $restaurantRepo;
     }
 
-    public function listRestaurantFromCity(Request $request){
+    public function listRestaurantFromCity(Request $request, CuisineRepo $cuisineRepo){
         $region = $request->get('region', 0);
-        $restaurants = $this->_restaurantRepo->getRestaurants($region);
-        return view('modules.restaurant.index');
+
+        $restaurants = $this->_restaurantRepo->getRestaurants((int)$region);
+        $cuisines = $cuisineRepo->getCuisines();
+        return view('modules.restaurant.index', compact('restaurants', 'cuisines'));
     }
 
 }

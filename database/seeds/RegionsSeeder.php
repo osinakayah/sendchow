@@ -12,10 +12,10 @@ class RegionsSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        for($i = 0; $i <= 4; $i++){
+        for($i = 0; $i <= 3; $i++){
             \DB::table('regions')->insert([
                 'region'    => $faker->city,
-                'city_id'   =>  $faker->numberBetween(1, 5),
+                'city_id'   =>  rand(1, 7),
             ]);
         }
     }

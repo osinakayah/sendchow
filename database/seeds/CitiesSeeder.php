@@ -13,7 +13,7 @@ class CitiesSeeder extends Seeder
     {
         //
         $faker = Faker\Factory::create();
-        for($i = 0; $i <= 4; $i++){
+        for($i = 0; $i <= 3; $i++){
             \DB::table('cities')->insert([
                 'city'    => $faker->state,
             ]);

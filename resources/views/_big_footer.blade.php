@@ -9,7 +9,7 @@
                 <a href="#"><img src="{{URL::asset('assets/img/appstore.png')}}" alt="App Store" width="172px"></a>
             </div>
             <div class="col-md-6">
-                <img src="./assets/img/app.png" alt="app" width="512px">
+                <img src="{{URL::asset('assets/img/app.png')}}" alt="app" width="512px">
             </div>
         </div>
     </div>
