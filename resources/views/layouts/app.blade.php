@@ -46,7 +46,7 @@
                         </li>
                         @if(Auth::check() == false)
                             <li class="nav-item signup">
-                                <a class="nav-link" rel="tooltip" title="Sign up" data-placement="bottom" href="register">
+                                <a class="nav-link" rel="tooltip" title="Sign up" data-placement="bottom" href="/register">
                                     <i class="fa fa-user-plus" aria-hidden="true"></i>
                                     <p>Sign Up</p>
                                 </a>
@@ -55,7 +55,7 @@
                                 <span class="vertical-divider"></span>
                             </li>
                             <li class="nav-item login">
-                                <a class="btn btn-primary btn-round" href="login">
+                                <a class="btn btn-primary btn-round" href="/login">
                                     <i class="fa fa-sign-in" aria-hidden="true"></i>
                                     <p>Log In</p>
                                 </a>

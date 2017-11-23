@@ -108,7 +108,7 @@
                             @foreach($restaurants as $restaurant)
                                 <li class="vendor">
                                     <div>
-                                        <a href="order_menu.html" class="vendor-nav">
+                                        <a href="/restaurants/order_menu/{{$restaurant->id}}" class="vendor-nav">
                                             <div class="vendor-image">
                                                 <img src="{{URL::asset('assets/img/restaurant-list.jpg')}}" width="80px" height="80px" class="rounded-circle" alt="restaurant">
                                             </div>

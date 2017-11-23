@@ -38,4 +38,13 @@ class RestaurantRepo
             return $this->_restaurantModel->simplePaginate(10);
         }
     }
+
+    public function getSingleRestaurantDetails(int $id){
+        $restaurant = $this->_restaurantModel->find($id);
+
+        if($restaurant){
+            return $restaurant;
+        }
+        return null;
+    }
 }

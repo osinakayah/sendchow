@@ -12,4 +12,7 @@ class RestaurantMock extends Model
     public function  cuisines(){
         return $this->belongsToMany(CuisineMock::class, 'cuisines_restaurant', 'restaurant_id', 'cuisine_id');
     }
+//    public function menus(){
+//
+//    }
 }
