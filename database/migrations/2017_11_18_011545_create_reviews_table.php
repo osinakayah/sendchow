@@ -17,8 +17,8 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->integer('restaurant_id')->unsigned();
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
-            $table->string('author_name');
-            $table->string('author_image');
+            $table->string('author_name')->nullable();
+            $table->string('author_image')->nullable();
             $table->integer('rating')->default(1);
             $table->text('review_text');
             $table->timestamps();

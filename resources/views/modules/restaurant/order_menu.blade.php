@@ -29,15 +29,17 @@
                 <div class="photo-container">
                     <img  src="{{URL::asset("assets/img/restaurant-list.jpg")}}" alt="logo">
                 </div>
-                <h3 class="title">This is a Restaurant</h3>
-                <p class="category">Nigerian, Pizza, Pasta, Bakery and Cake</p>
+                <h3 class="title">{{$restaurant->title}}</h3>
+                <p class="category">@foreach($categories as $category) {{$category->category}},@endforeach</p>
                 <div class="content">
                     <div class="text-wrap">
-                        <i class="icon-star-full2"></i>
-                        <i class="icon-star-full2"></i>
-                        <i class="icon-star-full2"></i>
-                        <i class="icon-star-full2"></i>
-                        <i class="icon-star-half"></i>
+                        @for($i = 0; $i <= 5; $i++)
+                            @if($i <= $restaurant->rating)
+                                <i class="icon-star-full2"></i>
+                            @else
+                                <i class="icon-star-empty3"></i>
+                            @endif
+                        @endfor
                         <span>(256)</span>
                     </div>
                 </div>
@@ -52,16 +54,20 @@
                         <button class="btn btn-primary btn-lg btn-round">Current Location</button>
                     </div>
                     <div class="select order-location gone">
-                        <select class="selectpicker" data-size="7" data-style="btn btn-primary" title="Select City" id="locale">
-                            <option disabled selected>Select City</option>
-                            <option value="2">Lagos</option>
-                            <option value="3">Port Harcourt</option>
-                        </select>
+                        <form class="select" action="/restaurants/get_restaurant_from_city" method="post">
+                            {{ csrf_field() }}
+                            <select class="selectpicker" data-size="7" data-style="btn btn-primary" title="Select City" id="locale">
+                                <option disabled selected>Select City</option>
+                                @foreach($cities as $city)
+                                    <option value="{{$city->id}}">{{$city->city}}</option>
+                                @endforeach
+                            </select>
 
-                        <select class="selectpicker" data-size="7" data-style="btn btn-primary region" title="Select Region" id="region">
-                            <option disabled selected>Select Region</option>
-                        </select>
-                        <button class="btn btn-primary btn-round">Find Restaurants</button>
+                            <select class="selectpicker" data-size="7" data-style="btn btn-primary region" title="Select Region" id="region" name="region">
+                                <option disabled selected>Select Region</option>
+                            </select>
+                            <button class="btn btn-primary btn-round">Find Restaurants</button>
+                        </form>
                     </div>
                     <div class="row">
                         <div class="col-lg-8 col-md-12 col-sm-12">

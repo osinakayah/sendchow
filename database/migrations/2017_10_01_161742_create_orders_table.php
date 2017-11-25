@@ -16,12 +16,13 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('sender_id')->unsigned();
-            $table->integer('receiver_id')->unsigned();
+            $table->integer('receiver_id')->unsigned()->nullable();
             $table->integer('restaurant_id')->unsigned();
 
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
             $table->foreign('sender_id')->references('id')->on('users');
             $table->foreign('receiver_id')->references('id')->on('users');
+            $table->decimal('amount');
 
             //$table->json('ordered_menu_food');
             $table->text('coupon');
