@@ -16,6 +16,10 @@ class DatabaseSeeder extends Seeder
             CitiesSeeder::class,
             RegionsSeeder::class,
             RestaurantTableSeeder::class,
+            CuisinesSeeder::class,
+            CuisinesRestuarantSeeder::class,
+            CategoriesSeeder::class,
+            CategoriesRestuarantSeeder::class,
         ]);
 
     }

@@ -53,26 +53,12 @@
                                     </div>
                                     <div id="categoryCollapse" class="collapse" role="tabpanel" aria-labelledby="categoryHeading" aria-expanded="false">
                                         <div class="card-block">
-                                            <div class="checkbox">
-                                                <input id="fast-food" type="checkbox" checked="">
-                                                <label for="fast-food">Fast Food</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="fast-casual" type="checkbox">
-                                                <label for="fast-casual">Fast Casual</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="casual-dining" type="checkbox">
-                                                <label for="casual-dining">Casual Dining</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="cafe" type="checkbox">
-                                                <label for="cafe">Café</label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <input id="barbecue" type="checkbox">
-                                                <label for="barbecue">Barbecue</label>
-                                            </div>
+                                            @foreach($categories as $category)
+                                                <div class="checkbox">
+                                                    <input id="fast-food" type="checkbox" checked="">
+                                                    <label for="fast-food">{{$category->category}}</label>
+                                                </div>
+                                            @endforeach
 
                                         </div>
                                     </div>
@@ -118,7 +104,7 @@
                                                 </div>
                                                 <ul class="vendor-cuisine">
                                                     @foreach($restaurant->cuisines as $cuisine)
-                                                        <li>{{$cuisine}}</li>
+                                                        <li>{{$cuisine->cuisine}}</li>
                                                     @endforeach
                                                 </ul>
 

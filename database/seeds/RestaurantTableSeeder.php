@@ -13,15 +13,13 @@ class RestaurantTableSeeder extends Seeder
     {
         //
         $faker = Faker\Factory::create();
-        for($i = 0; $i <= 144; $i++){
+        for($i = 1; $i <= 144; $i++){
             \DB::table('restaurants')->insert([
                 'status'        => true,
                 'user_id'       => rand(1, 144),
-                'region_id'     => rand(1, 7),
-//                'latitude'      => round($faker->latitude, 7),
-//                'longitude'     => round($faker->longitude, 7),
-                'latitude'      => round(0, 7),
-                'longitude'     => round(0, 7),
+                'region_id'     => rand(1, 5),
+                'latitude'      => $faker->latitude,
+                'longitude'     => $faker->longitude,
                 'address'       => $faker->address,
                 'title'         => $faker->firstName.' Foods',
                 'phone'         => $faker->phoneNumber,

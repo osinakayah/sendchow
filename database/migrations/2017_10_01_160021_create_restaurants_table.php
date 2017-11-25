@@ -20,8 +20,8 @@ class CreateRestaurantsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regions');
-            $table->decimal('latitude', 10, 8);
-            $table->decimal('longitude', 10, 8);
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('address');
             $table->string('title');
             $table->string('phone');
