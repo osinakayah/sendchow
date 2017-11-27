@@ -12,9 +12,9 @@ class RestaurantMock extends Model
     public function  cuisines(){
         return $this->belongsToMany(CuisineMock::class, 'cuisines_restaurant', 'restaurant_id', 'cuisine_id');
     }
-//    public function menus(){
-//
-//    }
+    public function menus(){
+        return $this->hasMany(MenuMock::class, 'restaurant_id', 'id');
+    }
     public function categories(){
         return $this->belongsToMany(CategoriesMock::class, 'categories_restaurant', 'restaurant_id', 'category_id');
     }

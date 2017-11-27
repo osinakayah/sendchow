@@ -99,23 +99,98 @@
                                                             <h5>Menu Title</h5>
                                                         </div>
                                                         <ul>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="#breakfast">Breakfast</a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="#chicken">Chicken</a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="#pastries">Pastries</a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="#drinks">Drinks</a>
-                                                            </li>
+                                                            @foreach($categories as $category)
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" href="#{{$category->id}}">{{$category->category}}</a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
 
                                                 </div>
                                                 <div class="col-lg-10 category-contents">
+                                                    <section id="popular">
+                                                        <div class="menu-category">
+                                                            <div class="menu-category-header">
+                                                                <h5>Popular</h5>
+                                                                <img src="{{URL::asset("assets/img/menu-header.jpg")}}" alt="menu header" class="rounded">
+                                                            </div>
+                                                            <div class="menu-container">
+                                                                <div class="menu-content">
+                                                                    <div class="menu-content-with-image">
+                                                                            <span class="menu-image">
+                                                                                <img src="{{URL::asset("assets/img/meal.jpg")}}" alt="meal-image" class="rounded" width="60px">
+                                                                            </span>
+                                                                        <span class="menu-title">
+                                                                                <h5>Food Item</h5>
+                                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-variation-container">
+                                                                    <ul class="menu-variation">
+                                                                        <li class="menu-item-variety">
+                                                                            <span class="variety-title">1 Portion</span>
+                                                                            <span class="variety-price">₦2,000</span>
+                                                                            <button type="button" class="btn btn-neutral" product-id="0001">
+                                                                                <i class="icon-import"></i>
+                                                                            </button>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="menu-container">
+                                                                <div class="menu-content">
+                                                                    <div class="menu-content-with-image">
+                                                                            <span class="menu-image">
+                                                                                    <img src="{{URL::asset("assets/img/meal.jpg")}}" alt="meal-image" class="rounded" width="60px">
+                                                                                </span>
+                                                                        <span class="menu-title">
+                                                                                    <h5>Food Item</h5>
+                                                                                </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-variation-container">
+                                                                    <ul class="menu-variation">
+                                                                        <li class="menu-item-variety">
+                                                                            <span class="variety-title">1 Portion</span>
+                                                                            <span class="variety-price">₦3,500</span>
+                                                                            <button type="button" class="btn btn-neutral" product-id="0004">
+                                                                                <i class="icon-import"></i>
+                                                                            </button>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="menu-container">
+                                                                <div class="menu-content">
+                                                                    <div class="menu-content-with-image">
+                                                                            <span class="menu-image">
+                                                                                <img src="{{URL::asset("assets/img/meal.jpg")}}" alt="meal-image" class="rounded" width="60px">
+                                                                            </span>
+                                                                        <span class="menu-title">
+                                                                                <h5>Food Item</h5>
+                                                                            </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="menu-variation-container">
+                                                                    <ul class="menu-variation">
+                                                                        <li class="menu-item-variety">
+                                                                            <span class="variety-title">1 Portion</span>
+                                                                            <span class="variety-price">₦2,600</span>
+                                                                            <button type="button" class="btn btn-neutral" product-id="0005">
+                                                                                <i class="icon-import"></i>
+                                                                            </button>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </section>
                                                     <section id="popular">
                                                         <div class="menu-category">
                                                             <div class="menu-category-header">

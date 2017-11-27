@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: osindex
- * Date: 11/25/17
- * Time: 3:01 PM
+ * Date: 11/27/17
+ * Time: 10:17 PM
  */
 
 namespace SendChow\Modules\Merchant\Model;
@@ -11,10 +11,7 @@ namespace SendChow\Modules\Merchant\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CategoriesMock extends Model
+class MenuMock extends Model
 {
-    protected $table = 'categories';
-    public function menus(){
-
-    }
+    protected $table = 'menus';
 }
