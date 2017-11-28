@@ -110,14 +110,12 @@
                                                 </div>
                                                 <div class="col-lg-10 category-contents">
                                                     @foreach($categoriesMenus as $key => $categoriesMenu)
-                                                        <section id="popular">
+                                                        <section id="@if(count($categoriesMenus) > 0 && isset($categoriesMenus[$key][0]['category']['id'])){{$categoriesMenus[$key][0]['category']['id']}}@endif">
                                                             <div class="menu-category">
                                                                 <div class="menu-category-header">
                                                                     <h5>
                                                                         @if(count($categoriesMenus) > 0 && isset($categoriesMenus[$key][0]['category']['category']))
                                                                             {{$categoriesMenus[$key][0]['category']['category']}}
-                                                                        @else
-                                                                            
                                                                         @endif
                                                                     </h5>
                                                                     <img src="{{URL::asset("assets/img/menu-header.jpg")}}" alt="menu header" class="rounded">
