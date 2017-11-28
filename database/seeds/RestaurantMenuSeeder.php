@@ -16,7 +16,7 @@ class RestaurantMenuSeeder extends Seeder
             \DB::table('menus')->insert([
                 'restaurant_id'     => $faker->numberBetween(1, 144),
                 'category_id'       => $faker->numberBetween(1, 4),
-                'cuisine_id'        => $faker->numberBetween(1, 5),
+                'cuisine_id'        => $faker->numberBetween(1, 7),
                 'name'              => $faker->lastName.' Fries',
                 'image'             => $faker->imageUrl(),
                 'price'             => $faker->randomDigitNotNull,

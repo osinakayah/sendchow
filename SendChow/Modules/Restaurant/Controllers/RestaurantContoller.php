@@ -40,10 +40,16 @@ class RestaurantContoller extends Controller
         $cities = $this->getCities();
         $restaurant = $this->_restaurantRepo->getSingleRestaurantDetails($id);
         $categories = $restaurant->categories;
-        return view('modules.restaurant.order_menu', compact('cities', 'restaurant', 'categories'));
+        $categoriesMenus = $this->getMenus($id, $categories->pluck('id')->toArray());
+
+        return view('modules.restaurant.order_menu', compact('cities', 'restaurant', 'categories', 'categoriesMenus'));
     }
     private function getCities(){
         return $this->_place->getCities();
+    }
+
+    private function getMenus(int $restaurantId, array $categoriesId){;
+        return $this->_restaurantRepo->getMenus($restaurantId, $categoriesId);
     }
 
 }

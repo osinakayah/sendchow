@@ -13,9 +13,9 @@ class CuisinesSeeder extends Seeder
     {
         $cusines = ['Koorean Foods', 'Chinese Food', 'Nigerian Dishes', 'Local Dishes', 'Koshar', 'International', 'French',];
 
-        for($i = 1; $i <= 5; $i++){
+        for($i = 1; $i <= count($cusines); $i++){
             \DB::table('cuisines')->insert([
-                'cuisine'    => $cusines[rand(0, 6)],
+                'cuisine'    => $cusines[$i-1],
             ]);
         }
     }

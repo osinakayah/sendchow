@@ -13,7 +13,7 @@ class CuisinesRestuarantSeeder extends Seeder
     {
         for($i = 1; $i <= 144; $i++){
             \DB::table('cuisines_restaurant')->insert([
-                'cuisine_id'    => rand(1, 5),
+                'cuisine_id'    => rand(1, 7),
                 'restaurant_id'    => rand(1, 144),
             ]);
         }

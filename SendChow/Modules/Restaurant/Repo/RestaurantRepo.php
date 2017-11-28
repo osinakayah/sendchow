@@ -9,6 +9,7 @@
 namespace SendChow\Modules\Restaurant\Repo;
 
 
+use Illuminate\Support\Collection;
 use SendChow\Modules\Locations\Models\Region;
 use SendChow\Modules\Merchant\Model\RestaurantMock;
 
@@ -39,6 +40,10 @@ class RestaurantRepo
         }
     }
 
+    /**
+     * @param int $id
+     * @return null
+     */
     public function getSingleRestaurantDetails(int $id){
         $restaurant = $this->_restaurantModel->find($id);
 
@@ -46,5 +51,16 @@ class RestaurantRepo
             return $restaurant;
         }
         return null;
+    }
+
+    public function getMenus(int $restaurantId, array $categoriesId){
+        $restaurant = $this->getSingleRestaurantDetails($restaurantId);
+
+        $resturantMenu = array_map(function ($categoryId) use ($restaurant){
+            return $restaurant->menus()->where('category_id', $categoryId)->with(['category'])->get();
+        }, $categoriesId);
+
+
+        return $resturantMenu;
     }
 }
