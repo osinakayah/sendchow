@@ -125,7 +125,7 @@
                                                                         <div class="menu-content">
                                                                             <div class="menu-content-with-image">
                                                                             <span class="menu-image">
-                                                                                <img src="{{URL::asset("assets/img/meal.jpg")}}" alt="meal-image" class="rounded" width="60px">
+                                                                                <img src="{{$menu['image']}}" alt="meal-image" class="rounded" width="60px">
                                                                             </span>
                                                                                 <span class="menu-title">
                                                                                 <h5>{{$menu['name']}}</h5>
@@ -137,7 +137,7 @@
                                                                                 <li class="menu-item-variety">
                                                                                     <span class="variety-title">1 Portion</span>
                                                                                     <span class="variety-price">&#x20a6;{{$menu['price']}}</span>
-                                                                                    <button type="button" class="btn btn-neutral" product-id="0001">
+                                                                                    <button type="button" class="btn btn-neutral" product-id="{{$menu['id']}}">
                                                                                         <i class="icon-import"></i>
                                                                                     </button>
                                                                                 </li>

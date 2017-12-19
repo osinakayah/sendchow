@@ -52,4 +52,8 @@ class RestaurantContoller extends Controller
         return $this->_restaurantRepo->getMenus($restaurantId, $categoriesId);
     }
 
+    public function getRestaurantProduct(int $restaurantId){
+        return response()->json($this->_restaurantRepo->getProduct($restaurantId));
+    }
+
 }

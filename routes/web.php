@@ -18,3 +18,4 @@ require_once (generate_path_to_module_route('Authentication', 'web'));
 require_once (generate_path_to_module_route('Home', 'web'));
 require_once (generate_path_to_module_route('Locations', 'web'));
 require_once (generate_path_to_module_route('Restaurant', 'web'));
+require_once (generate_path_to_module_route('Cart', 'web'));

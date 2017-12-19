@@ -63,4 +63,21 @@ class RestaurantRepo
 
         return $resturantMenu;
     }
+
+    /**
+     * @param int $restaurantId
+     * @return Collection
+     */
+    public function getProduct(int $restaurantId){
+        $restaurant = $this->getSingleRestaurantDetails($restaurantId);
+        if($restaurant){
+
+            $menus = $restaurant->menus()->select('id as productId', 'name as item', 'price')->get();
+
+            return $menus;
+        }
+        return collect();
+    }
+
+
 }

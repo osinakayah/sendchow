@@ -8,7 +8,7 @@ const babel = require('gulp-babel');
 gulp.task('scripts', function() {
     return gulp.src([
         'public/assets/js/autoload.js',
-        'public/assets/js/dev/modules/**/*.js',
+        'public/assets/js/dev/modules/*.js',
 
     ])
         // .pipe(babel({

@@ -13,9 +13,9 @@ class CategoriesSeeder extends Seeder
     {
         $categories = ['Fast food', 'Casual Dining', 'Cafe', 'Barbecue',];
 
-        for($i = 1; $i <= count($categories); $i++){
+        for ($i = 1; $i <= count($categories); $i++) {
             \DB::table('categories')->insert([
-                'category'    => $categories[$i-1],
+                'category' => $categories[$i - 1],
             ]);
         }
     }

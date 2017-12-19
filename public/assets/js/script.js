@@ -28,19 +28,6 @@ var cartItemCount = 0;
 
 //var vendorLocation = { lat: 6.4530906, lng: 3.5318009 };
 
-var localeLagos = [
-    { id: "2", region: "Agege" },
-    { id: "3", region: "Ajah" },
-    { id: "4", region: "Akoka" },
-    { id: "5", region: "Amowo Odofin" }
-];
-
-var localePortHarcourt = [
-    { id: "2", region: "1st Artilary" },
-    { id: "3", region: "2nd Artilary" },
-    { id: "4", region: "Elelenwo" },
-    { id: "5", region: "Rumuokwurusi" }
-];
 
 var products = [
     { productId: "0001", price: 2000, item: "Chicken", qty: 0 },
