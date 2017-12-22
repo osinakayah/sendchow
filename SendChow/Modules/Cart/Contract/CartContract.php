@@ -14,11 +14,14 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
 interface CartContract
 {
     function add($menuItem, int $quantity);
-    function update(int $menuIdentifier, $menuItem);
+    function update(int $menuIdentifier, array $updates);
     function remove(int $menuIdentifier);
     function getAllItems();
     function getTotal();
     function calculateTax();
     function getSubtotal();
     function count();
+    function getMenuItem(int $id);
+    function storeCart();
+    function restoreCart();
 }

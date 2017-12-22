@@ -22,7 +22,31 @@ class CartController extends Controller
         $this->cartRepo = $cartContract;
     }
 
+    public function index(){
+        $this->cartRepo->restoreCart();
+        return response()->json($this->getCartContents());
+    }
+
+    /**
+     * @return array
+     */
+
+    private function getCartContents(){
+        $items = $this->cartRepo->getAllItems();
+
+        $subtotal = $this->cartRepo->getSubtotal();
+        $tax = $this->cartRepo->calculateTax();
+        $total = $this->cartRepo->getTotal();
+        $count = $this->cartRepo->count();
+
+        return compact('subtotal', 'tax', 'total', 'count', 'items');
+    }
+
     public function addMenuToCart(int $menuId, int $quantity){
-        return $this->cartRepo->add();
+        $this->cartRepo->add($this->cartRepo->getMenuItem($menuId), $quantity);
+        $this->cartRepo->storeCart();
+
+        return response()->json($this->getCartContents());
+
     }
 }

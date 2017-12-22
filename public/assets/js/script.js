@@ -49,18 +49,18 @@ var cartItems = [];
 var options = [];
 
 
-
-addToCartButton.on("click", function() {
-    if (cartItemCount == 0) {
-        emptyCart.addClass("gone");
-        mobileCart.removeClass("gone");
-        priceCheckout.removeClass("gone");
-    }
-    addItemToCart($(this));
-    totalPrice = calculateTotalPrice();
-    cartItemCount++;
-    updateCart();
-});
+//
+// addToCartButton.on("click", function() {
+//     if (cartItemCount == 0) {
+//         emptyCart.addClass("gone");
+//         mobileCart.removeClass("gone");
+//         priceCheckout.removeClass("gone");
+//     }
+//     addItemToCart($(this));
+//     totalPrice = calculateTotalPrice();
+//     cartItemCount++;
+//     updateCart();
+// });
 
 $(".cart").on("click", ".btn-group button.add", function(e) {
 

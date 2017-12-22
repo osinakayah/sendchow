@@ -11,6 +11,7 @@ namespace SendChow\Modules\Restaurant\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use SendChow\Modules\Cart\Contract\CartContract;
 use SendChow\Modules\Locations\Repo\Place;
 use SendChow\Modules\Merchant\Repo\CuisineRepo;
 use SendChow\Modules\Merchant\Repo\MerchantCategoriesRepo;
@@ -20,8 +21,10 @@ class RestaurantContoller extends Controller
 {
     protected $_restaurantRepo;
     protected $_place;
-    function __construct(RestaurantRepo $restaurantRepo, Place $place)
+    private $cartRepo;
+    function __construct(RestaurantRepo $restaurantRepo, Place $place, CartContract $cartContract)
     {
+        $this->cartRepo = $cartContract;
         $this->_restaurantRepo  = $restaurantRepo;
         $this->_place           = $place;
     }

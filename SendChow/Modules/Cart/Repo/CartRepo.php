@@ -10,7 +10,7 @@ namespace SendChow\Modules\Cart\Repo;
 
 
 use Gloudemans\Shoppingcart\Cart;
-use Gloudemans\Shoppingcart\Contracts\Buyable;
+use Gloudemans\Shoppingcart\Exceptions\CartAlreadyStoredException;
 use SendChow\Modules\Cart\Abstracts\CartAbstract;
 use SendChow\Modules\Merchant\Model\MenuMock;
 
@@ -22,6 +22,7 @@ class CartRepo extends CartAbstract
     {
         parent::__construct($menuMock);
         $this->cart = $cart;
+        $this->cart->instance(\Auth::id());
     }
 
 
@@ -41,10 +42,10 @@ class CartRepo extends CartAbstract
      * @param $menuItem
      * @return mixed
      */
-    function update(int $menuIdentifier, $menuItem)
+    function update(int $menuIdentifier, array $updates)
     {
         // COMPLETED: Implement update() method.
-        return $this->update($menuIdentifier, $menuItem);
+        return $this->update($menuIdentifier, $updates);
     }
 
     /**
@@ -93,6 +94,29 @@ class CartRepo extends CartAbstract
     {
         // COMPLETED: Implement count() method.
         return $this->cart->count();
+    }
+
+    function storeCart()
+    {
+        $tries = 0;
+        $tries += 1;
+        try{
+            $this->cart->store(\Auth::id());
+        }catch (CartAlreadyStoredException $e){
+            if($tries < 2){
+                \DB::table(config('cart.database.table'))->where('identifier', '=', \Auth::id())->delete();
+                $this->storeCart();
+            }
+
+        }
+
+        // TODO: Implement storeCart() method.
+    }
+
+    function restoreCart()
+    {
+        // TODO: Implement restoreCart() method.
+        $this->cart->restore(\Auth::id());
     }
 
 }

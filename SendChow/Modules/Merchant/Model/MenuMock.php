@@ -29,7 +29,7 @@ class MenuMock extends Model implements Buyable
     public function getBuyableDescription($options = null)
     {
         // COMPLETED: Implement getBuyableDescription() method.
-        return "Nice chow";
+        return $this->attributes['name'];
     }
 
     public function getBuyablePrice($options = null)

@@ -24,7 +24,7 @@ abstract class CartAbstract implements CartContract
      * @param int $id
      * @return mixed
      */
-    protected function getMenuItem(int $id){
+    public function getMenuItem(int $id){
         return $this->_menuModel->find($id);
     }
 }

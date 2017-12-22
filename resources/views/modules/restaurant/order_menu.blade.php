@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="{{URL::asset('assets/css/icomoon/styles.css')}}">
     </head>
 
-    <body class="order-menu-page" data-spy="scroll" data-target="#scrollspy" data-offset="80">
+    <body id="checkout-body" class="order-menu-page" data-spy="scroll" data-target="#scrollspy" data-offset="80">
 
     <div class="wrapper">
         <div class="page-header page-header-small" filter-color="green">
@@ -312,7 +312,7 @@
                                         <th colspan="4">Your Order</th>
                                     </tr>
                                     </thead>
-                                    <tbody class="cart">
+                                    <tbody class="cart" id="cart_table_body">
                                     <tr class="cart-empty">
                                         <td class="empty-bag">
                                             <div class="empty-bag-bg">
@@ -323,22 +323,20 @@
                                             </div>
                                         </td>
                                     </tr>
+
                                     </tbody>
                                 </table>
-                                <div class="cart-total-checkout gone">
+                                <div id="cart-total-checkout" class="cart-total-checkout gone">
                                     <hr style="width: 90%">
                                     <div class="cart-total">
                                         <div class="sub-total">
-                                            Subtotal: <span class="sub-price">₦334,900</span>
+                                            Subtotal: <span id="sub_total_price" class="sub-price">₦334,900</span>
                                         </div>
                                         <div class="sub-total">
-                                            + Service Charge: <span class="service-charge">₦334,900</span>
-                                        </div>
-                                        <div class="sub-total">
-                                            VAT Included: <span class="vat">₦334,900</span>
+                                            + Service Charge: <span id="items_tax" class="service-charge">₦334,900</span>
                                         </div>
                                         <div class="td-total">
-                                            Total: ₦<span class="td-price">334,900</span>
+                                                    Total: ₦<span id="total_price" class="td-price">334,900</span>
                                         </div>
                                     </div>
                                     <div class="cart-checkout-btn">
@@ -431,7 +429,6 @@
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsZAYY0bkq5wrGeZPtPD8CvSyrLwv8Wc8&callback=initMap">
         </script>
 
-
         <script>
             function initMap() {
                 var vendorLocation = {
@@ -447,6 +444,9 @@
                     map: map
                 });
             }
+        </script>
+        <script>
+
         </script>
     </body>
 

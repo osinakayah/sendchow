@@ -10,4 +10,4 @@ Route::post('register', '\SendChow\Modules\Authentication\Web\Controller\Authent
 Route::post('login', '\SendChow\Modules\Authentication\Web\Controller\AuthenticationController@login');
 
 Route::get('register', '\SendChow\Modules\Authentication\Web\Controller\AuthenticationController@showRegisterPage');
-Route::get('login',  '\SendChow\Modules\Authentication\Web\Controller\AuthenticationController@showLoginPage');
+Route::get('login',  '\SendChow\Modules\Authentication\Web\Controller\AuthenticationController@showLoginPage')->name('login');
