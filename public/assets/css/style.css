@@ -1,5 +1,17 @@
 /* change primary color */
 
+#cart_table_body{
+    //cursor: progress;
+    //pointer-events: none;
+}
+
+.processing{
+    background-image: url("/images/ajax-loader-4.gif");
+    background-repeat: no-repeat;
+    margin: auto!important;
+    pointer-events: none;
+}
+
 body {
     position: relative !important;
 }

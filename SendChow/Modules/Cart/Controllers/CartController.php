@@ -49,4 +49,13 @@ class CartController extends Controller
         return response()->json($this->getCartContents());
 
     }
+
+    public function updateCart(string $rowId, $quantity){
+        $this->cartRepo->update($rowId, ['qty' => $quantity,]);
+        return response()->json($this->getCartContents());
+    }
+    public function destroy ($rowId){
+        $this->cartRepo->remove($rowId);
+        return response()->json($this->getCartContents());
+    }
 }

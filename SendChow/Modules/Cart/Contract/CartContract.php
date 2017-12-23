@@ -14,8 +14,8 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
 interface CartContract
 {
     function add($menuItem, int $quantity);
-    function update(int $menuIdentifier, array $updates);
-    function remove(int $menuIdentifier);
+    function update(string $menuIdentifier, array $updates);
+    function remove(string $menuIdentifier);
     function getAllItems();
     function getTotal();
     function calculateTax();

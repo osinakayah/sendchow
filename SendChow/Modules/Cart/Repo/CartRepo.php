@@ -17,12 +17,13 @@ use SendChow\Modules\Merchant\Model\MenuMock;
 class CartRepo extends CartAbstract
 {
     private $cart;
+    private $tries = 0;
 
     function __construct(Cart $cart, MenuMock $menuMock)
     {
         parent::__construct($menuMock);
         $this->cart = $cart;
-        $this->cart->instance(\Auth::id());
+        $this->tries = 0;
     }
 
 
@@ -34,7 +35,7 @@ class CartRepo extends CartAbstract
     function add($menuItem, int $quantity = 0)
     {
         // COMPLETED: Implement add() method.
-        return $this->cart->add($menuItem, $quantity);
+        return $this->cart->instance(\Auth::id())->add($menuItem, $quantity);
     }
 
     /**
@@ -42,19 +43,19 @@ class CartRepo extends CartAbstract
      * @param $menuItem
      * @return mixed
      */
-    function update(int $menuIdentifier, array $updates)
+    function update(string $menuIdentifier, array $updates)
     {
         // COMPLETED: Implement update() method.
-        return $this->update($menuIdentifier, $updates);
+        return $this->cart->instance(\Auth::id())->update($menuIdentifier, $updates);
     }
 
     /**
      * @param int $menuIdentifier
      */
-    function remove(int $menuIdentifier)
+    function remove(string $menuIdentifier)
     {
         // COMPLETED: Implement remove() method.
-        $this->remove($menuIdentifier);
+        $this->cart->instance(\Auth::id())->remove($menuIdentifier);
     }
 
     /**
@@ -63,13 +64,13 @@ class CartRepo extends CartAbstract
     function getAllItems()
     {
         // COMPLETED: Implement getAllItems() method.
-        return $this->cart->content();
+        return $this->cart->instance(\Auth::id())->content();
     }
 
     function getTotal()
     {
         // COMLETED: Implement getTotal() method.
-        return $this->cart->total();
+        return $this->cart->instance(\Auth::id())->total();
     }
 
     /**
@@ -78,7 +79,7 @@ class CartRepo extends CartAbstract
     function calculateTax()
     {
         // COMPLETED: Implement calculateTax() method.
-        return $this->cart->tax();
+        return $this->cart->instance(\Auth::id())->tax();
     }
 
     /**
@@ -87,36 +88,36 @@ class CartRepo extends CartAbstract
     function getSubtotal()
     {
         // COMPLETED: Implement getSubtotal() method.
-        return $this->cart->subtotal();
+        return $this->cart->instance(\Auth::id())->subtotal();
     }
 
     function count()
     {
         // COMPLETED: Implement count() method.
-        return $this->cart->count();
+        return $this->cart->instance(\Auth::id())->count();
     }
 
     function storeCart()
     {
-        $tries = 0;
-        $tries += 1;
+
+        $this->tries += 1;
         try{
-            $this->cart->store(\Auth::id());
+            $this->cart->instance(\Auth::id())->store(\Auth::id());
         }catch (CartAlreadyStoredException $e){
-            if($tries < 2){
+            if($this->tries < 3){
                 \DB::table(config('cart.database.table'))->where('identifier', '=', \Auth::id())->delete();
                 $this->storeCart();
             }
 
         }
 
-        // TODO: Implement storeCart() method.
+        // COMPLETED: Implement storeCart() method.
     }
 
     function restoreCart()
     {
-        // TODO: Implement restoreCart() method.
-        $this->cart->restore(\Auth::id());
+        // COMPLETED: Implement restoreCart() method.
+        $this->cart->instance(\Auth::id())->restore(\Auth::id());
     }
 
 }

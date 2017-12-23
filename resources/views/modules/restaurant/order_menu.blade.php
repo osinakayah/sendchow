@@ -305,12 +305,13 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="card card-cart sticky">
+                            <div id="cart_table_div_wrapper" class="card card-cart sticky processing">
                                 <table class="table table-shopping">
                                     <thead>
                                     <tr>
                                         <th colspan="4">Your Order</th>
                                     </tr>
+
                                     </thead>
                                     <tbody class="cart" id="cart_table_body">
                                     <tr class="cart-empty">
@@ -330,13 +331,13 @@
                                     <hr style="width: 90%">
                                     <div class="cart-total">
                                         <div class="sub-total">
-                                            Subtotal: <span id="sub_total_price" class="sub-price">₦334,900</span>
+                                            Subtotal: <span id="sub_total_price" class="sub-price">	&#x20A6;334,900</span>
                                         </div>
                                         <div class="sub-total">
-                                            + Service Charge: <span id="items_tax" class="service-charge">₦334,900</span>
+                                            + Service Charge: <span id="items_tax" class="service-charge">&#x20A6;334,900</span>
                                         </div>
                                         <div class="td-total">
-                                                    Total: ₦<span id="total_price" class="td-price">334,900</span>
+                                                    Total: 	&#x20A6;<span id="total_price" class="td-price">&#x20A6;334,900</span>
                                         </div>
                                     </div>
                                     <div class="cart-checkout-btn">
@@ -444,9 +445,6 @@
                     map: map
                 });
             }
-        </script>
-        <script>
-
         </script>
     </body>
 

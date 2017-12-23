@@ -48,62 +48,6 @@ var cartItems = [];
 
 var options = [];
 
-
-//
-// addToCartButton.on("click", function() {
-//     if (cartItemCount == 0) {
-//         emptyCart.addClass("gone");
-//         mobileCart.removeClass("gone");
-//         priceCheckout.removeClass("gone");
-//     }
-//     addItemToCart($(this));
-//     totalPrice = calculateTotalPrice();
-//     cartItemCount++;
-//     updateCart();
-// });
-
-$(".cart").on("click", ".btn-group button.add", function(e) {
-
-    //alert("CLicked");
-    e.stopPropagation();
-    addItemToCart($(this).parent());
-    totalPrice = calculateTotalPrice();
-    cartItemCount++;
-    updateCart();
-});
-
-$(".cart").on("click", ".btn-group button.minus", function(e) {
-    //alert("CLicked");
-    e.stopPropagation();
-    removeItemFromCart($(this).parent(), false);
-    totalPrice = calculateTotalPrice();
-    updateCart();
-    if (cartItemCount == 0) {
-        if ($(window).width() < 991) {
-            toggleMobileCart();
-        }
-        emptyCart.removeClass("gone");
-        mobileCart.addClass("gone");
-        priceCheckout.addClass("gone");
-    }
-});
-
-$(".cart").on("click", ".td-actions button.remove", function(e) {
-    //alert("CLicked");
-    e.stopPropagation();
-    removeItemFromCart($(this), true);
-    totalPrice = calculateTotalPrice();
-    updateCart();
-    if (cartItemCount == 0) {
-        if ($(window).width() < 991) {
-            toggleMobileCart();
-        }
-        emptyCart.removeClass("gone");
-        mobileCart.addClass("gone");
-        priceCheckout.addClass("gone");
-    }
-});
-
 $(document).ready(function() {
     pageInit();
 });
