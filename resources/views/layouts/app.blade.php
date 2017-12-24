@@ -78,7 +78,7 @@
                                         <p>Orders</p>
                                     </a>
                                     <div class="divider"></div>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="/logout">
                                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                                         <p>Log Out</p>
                                     </a>

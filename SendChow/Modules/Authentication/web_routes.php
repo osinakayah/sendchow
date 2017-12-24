@@ -5,7 +5,10 @@
  * Date: 10/1/17
  * Time: 5:45 PM
  */
-
+Route::get('logout',  function (){
+    Auth::logout();
+    return redirect('/');
+});
 Route::post('register', '\SendChow\Modules\Authentication\Web\Controller\AuthenticationController@register');
 Route::post('login', '\SendChow\Modules\Authentication\Web\Controller\AuthenticationController@login');
 
