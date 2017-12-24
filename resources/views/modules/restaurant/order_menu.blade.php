@@ -351,7 +351,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cart-bottom gone">
+                <div id="mobile_cart_bottom_summary" class="cart-bottom gone">
                         <span class="cart-basket">
                             <i class="icon-bag"></i>
                             <span class="total-cart-item-count">1</span>
@@ -376,7 +376,7 @@
                         </div>
                         <div class="cart-product">
                             <table class="table table-shopping">
-                                <tbody class="cart">
+                                <tbody id="mobile-cart_table_body" class="cart">
                                 <!-- <tr class="cart-total">
                                     <td class="td-total" colspan="1">
                                         Total:
@@ -390,16 +390,13 @@
                             <hr style="width:90%">
                             <div class="cart-total">
                                 <div class="sub-total">
-                                    Subtotal: <span class="sub-price">₦334,900</span>
+                                    Subtotal: <span id="mobile_sub_total_price" class="sub-price">₦334,900</span>
                                 </div>
                                 <div class="sub-total">
-                                    + Service Charge: <span class="service-charge">₦334,900</span>
-                                </div>
-                                <div class="sub-total">
-                                    VAT Included: <span class="vat">₦334,900</span>
+                                    + Service Charge: <span id="mobile_items_tax" class="service-charge">₦334,900</span>
                                 </div>
                                 <div class="td-total">
-                                    Total: ₦<span class="td-price">334,900</span>
+                                    Total: ₦<span id="mobile_total_price" class="td-price">334,900</span>
                                 </div>
                             </div>
                         </div>
