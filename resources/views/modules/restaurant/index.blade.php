@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="container">
-                <div class="restaurant-count">
+                <div class="restaurant-count gone">
                     <h2>There are <span>6</span> available Restaurants</h2>
                 </div>
                 <div class="row">
